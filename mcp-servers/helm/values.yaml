@@ -44,6 +44,32 @@ mcp-servers:
       capabilities:
         drop:
           - ALL
+  hr:
+    enabled: true
+    port: 8000
+    transport: sse
+    image: "quay.io/rh-ai-quickstart/hr-mcp-server:latest"
+    permissionProfile:
+      name: network
+      type: builtin
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+    podSecurityContext:
+      fsGroup: 0
+      fsGroupChangePolicy: OnRootMismatch
+      seccompProfile:
+        type: RuntimeDefault
+    
   
   oracle-sqlcl:
     # Oracle SQLcl MCP Server configuration

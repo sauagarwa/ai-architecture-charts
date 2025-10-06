@@ -1,0 +1,9 @@
+[project]
+name = "hr"
+version = "0.1.0"
+description = "HR MCP Server for company HR operations and inquiries"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+]
